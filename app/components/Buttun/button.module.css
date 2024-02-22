@@ -1,0 +1,79 @@
+/* button.module.css */
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    padding:  0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+
+    /*outline-offset: 2px;*/
+    cursor: pointer;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.button.fullWidth {
+    width: 100%;
+}
+
+.button.primary {
+    background-color: #3b82f6;
+    color: #f5f1f1;
+}
+
+.button.secondary {
+    background-color: #60a5fa;
+    color: #4b5563;
+}
+
+.button.danger {
+    background-color: #e70202;
+    color: #f5f1f1;
+}
+
+.button:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.button.primary:hover {
+    background-color: #2563eb;
+}
+
+.button.secondary:hover {
+    background-color: #93c5fd;
+}
+
+.button.danger:hover {
+    background-color: #f87171;
+}
+
+/*.button.focus-visible:focus-visible {*/
+/*    outline: 2px solid #3b82f6;*/
+/*}*/
+
+
+.button.outline {
+    background: #f5f1f1;
+    border-width: 1px;
+    border-color: #3b82f6;
+}
+.button.outline:hover {
+    background-color: #3b82f6;
+    color: #f5f1f1;
+}
+
+.button.small{
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+.button.large{
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
