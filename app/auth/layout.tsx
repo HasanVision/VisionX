@@ -1,4 +1,5 @@
 import styles from "./auth.module.css"
+import React from "react";
 
 
 const AuthLayout = ({

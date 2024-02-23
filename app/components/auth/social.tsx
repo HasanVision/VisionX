@@ -6,27 +6,14 @@ import Button from "../Buttun/button"
 import styles from "./auth.module.css"
 export const Social = () => {
     return(
-        <div className={styles.Social}>
-            <div>
-                <Button fullWidth={true}>
-                    Sign in
-                </Button>
-            </div>
-            <div>
+
+            <div className={styles.Social}>
                 <Button size={"medium"} fullWidth={true} variant={"outline"}>
                     <FcGoogle/>
                 </Button>
                 <Button size={"medium"} fullWidth={true} variant={"outline"}>
                     <FaGithub/>
                 </Button>
-
             </div>
-
-
-            <Button size={"small"} variant={"outline"}>
-                Sign in
-            </Button>
-
-        </div>
     )
 }

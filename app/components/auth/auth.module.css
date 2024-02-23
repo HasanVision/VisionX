@@ -4,6 +4,7 @@
     -webkit-box-shadow: 7px 6px 22px 0 rgba(199,127,4,1);
     -moz-box-shadow: 7px 6px 22px 0 rgba(199,127,4,1);
     box-shadow: 7px 6px 22px 0 rgba(199,127,4,1);
+    padding: 1rem;
 }
 
 .authHeader{
@@ -11,12 +12,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 0.5rem;
+    gap: 0.5rem;
 }
 
 .Social{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+
     align-items: center;
-    justify-content: space-between;
+    gap: 0.5rem;
+    margin: 0.5rem;
+}
+.Form{
+    margin-top: 1.5rem ;
+}
+.formInput{
+    margin-top: 1rem;
 }
