@@ -1,6 +1,6 @@
 
 "use client"
-import {login} from "@/actions/login"
+import {register} from "@/actions/register"
 import styles from "./auth.module.css"
 
 import {CardWrapper} from "@/app/components/auth/card-wrapper";
@@ -11,7 +11,7 @@ import {Input} from "../input/input"
 import Button from "../Button/button"
 
 import * as z from "zod";
-import {LoginSchema} from "@/schemas";
+import {RegisterSchema} from "@/schemas";
 
 import {useState, useTransition} from "react";
 
@@ -27,27 +27,28 @@ import {FormError} from "@/app/components/formError/form-error";
 import {FormSuccess} from "@/app/components/formError/formSuccess";
 
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
 
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
 
     const [isPending, startTransition] = useTransition();
-    const form = useForm<z.infer<typeof LoginSchema>>({
-        resolver: zodResolver(LoginSchema),
+    const form = useForm<z.infer<typeof RegisterSchema>>({
+        resolver: zodResolver(RegisterSchema),
         defaultValues: {
+            name: "",
             email: "",
             password: "",
         }
     });
 
-    const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+    const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
         setError("");
         setSuccess("");
 
 
         startTransition(()=>{
-            login(values)
+            register(values)
                 .then ((data) => {
                     setError(data.error);
                     setSuccess(data.success);
@@ -57,9 +58,9 @@ export const LoginForm = () => {
     }
     return(
         <CardWrapper
-        headerLabel="Welcom to VisionX"
-        backButtonHref="/auth/register"
-        backButtonLabel="Create an account"
+        headerLabel="Create an account"
+        backButtonHref="/auth/login"
+        backButtonLabel="Already have an account? login"
         showSocial
         >
            <Form {...form} >
@@ -67,6 +68,24 @@ export const LoginForm = () => {
                    onSubmit={form.handleSubmit(onSubmit)}
                >
                    <div className={styles.formInput}>
+                       <FormField
+                           control={form.control}
+                           name="name"
+                           render={({field})=>(
+                               <FormItem>
+                                   <FormLabel>Name</FormLabel>
+                                   <FormControl>
+                                       <Input
+                                           disabled={isPending}
+                                           placeholder="John Doe"
+                                           {...field}
+                                           // type="name"
+                                       />
+                                   </FormControl>
+                                   <FormMessage/>
+                               </FormItem>
+                           )}
+                       />
                        <FormField
                        control={form.control}
                        name="email"
@@ -109,7 +128,7 @@ export const LoginForm = () => {
 <Button type={"submit"} fullWidth={true}
 disabled={isPending}
 >
-   Login
+   Register
 </Button>
                </form>
            </Form>

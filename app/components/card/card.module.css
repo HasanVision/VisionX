@@ -1,0 +1,40 @@
+.Card{
+    border-radius: 0.75rem;
+    border-width: 1px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+}
+
+.CardHeader{
+    display: flex;
+    padding: 1.5rem;
+    margin-top: 0.375rem;
+    flex-direction: column;
+
+}
+
+.CardTitle{
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1;
+}
+
+.CardDescription{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+
+}
+
+.CardContent{
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    padding: 0 1.5rem 1.5rem;
+}
+
+.CardFooter{
+    display: flex;
+    padding: 0 1.5rem 1.5rem;
+    align-items: center;
+}

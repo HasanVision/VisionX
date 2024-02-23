@@ -1,0 +1,25 @@
+.formErrorMessage{
+    background-color: #f3d2d2;
+    /*opacity: 70%;*/
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    /*column-gap: 0.5rem;*/
+    font-size: 15px;
+    color: #f52721;
+    /*padding-right: 0.5rem;*/
+
+
+}
+
+.formSuccessMessage{
+    background-color: #ddf3d2;
+    /*opacity: 70%;*/
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    /*column-gap: 0.5rem;*/
+    font-size: 15px;
+    color: #142d07;
+    /*padding-right: 0.5rem;*/
+}

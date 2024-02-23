@@ -1,7 +1,9 @@
 import * as React from "react"
 import * as LabelPrimitive from "@radix-ui/react-label"
-import {Label}from "@radix-ui/react-label"
-import { Slot } from "@radix-ui/react-slot"
+// import {Label}from "../label/label";
+
+import {Label} from "@/app/components/label/label";
+
 import {
     Controller,
     ControllerProps,
@@ -14,7 +16,6 @@ import {
 import styles from "./form.module.css"
 
 import { cn } from "@/lib/utils"
-//import { Label } from "@/components/ui/label"
 
 const Form = FormProvider
 
@@ -81,7 +82,7 @@ const FormItem = React.forwardRef<
 
     return (
         <FormItemContext.Provider value={{ id }}>
-            <div ref={ref} className={styles.FormItemContext} {...props} />
+            <div ref={ref} className={cn(styles.FormItemContext, className)} {...props} />
         </FormItemContext.Provider>
     )
 })
@@ -95,9 +96,9 @@ const FormLabel = React.forwardRef<
 
     return (
         <Label
-            className={`${error ? styles.FormLabel : ''}`}
+            // className={`${error ? styles.FormLabel : ''}`}
             ref={ref}
-            // className={cn(error && "text-destructive", className)}
+             className={cn(error && styles.FormLabel, className)}
             htmlFor={formItemId}
             {...props}
         />
@@ -106,13 +107,13 @@ const FormLabel = React.forwardRef<
 FormLabel.displayName = "FormLabel"
 
 const FormControl = React.forwardRef<
-    React.ElementRef<typeof Slot>,
-    React.ComponentPropsWithoutRef<typeof Slot>
+    HTMLDivElement,
+    React.HTMLAttributes<HTMLDivElement>
 >(({ ...props }, ref) => {
     const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
 
     return (
-        <Slot
+        <div
             ref={ref}
             id={formItemId}
             aria-describedby={
@@ -137,8 +138,8 @@ const FormDescription = React.forwardRef<
         <p
             ref={ref}
             id={formDescriptionId}
-            className={styles.FormDescription}
-            //className={cn("text-[0.8rem] text-muted-foreground", className)}
+            // className={styles.FormDescription}
+            className={cn(styles.FormDescription, className)}
             {...props}
         />
     )
@@ -160,8 +161,8 @@ const FormMessage = React.forwardRef<
         <p
             ref={ref}
             id={formMessageId}
-            className={styles.FormMessage}
-            //className={cn("text-[0.8rem] font-medium text-destructive", className)}
+
+            className={cn(styles.FormMessage, className)}
             {...props}
         >
             {body}

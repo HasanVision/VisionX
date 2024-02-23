@@ -2,7 +2,7 @@
 
 "use client"
 
-import Button from "../Buttun/button"
+import Button from "@/app/components/Button/button"
 import Link from "next/link";
 
 interface BackButtonProps {
@@ -15,14 +15,14 @@ export const BackButton = ({
                            } : BackButtonProps) => {
     return (
 
-        <div>
-            Or:
-            <div/>
+        <Button variant="link" fullWidth={true}>
+
+
             <Link href={href}  >
 
                 {label}
             </Link>
-        </div>
+        </Button>
 
 
     )

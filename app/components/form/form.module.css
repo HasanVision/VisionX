@@ -1,13 +1,16 @@
 .FormItemContext {
-    margin-bottom: 0.5rem;
-    background-color: #2563eb;
+    margin-bottom: 1rem;
+    /*background-color: #2563eb;*/
 }
 
-.FormDescription {
-    color: goldenrod;
+.FormLabel {
+    color: #C05621;
 }
 
 .FormMessage {
     color: #C05621;
     font-size: small;
+}
+.FormDescription{
+font-size: 0.8rem;
 }

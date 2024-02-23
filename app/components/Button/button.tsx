@@ -7,7 +7,7 @@ interface ButtonProps {
     fullWidth?: boolean;
     children?: React.ReactNode;
     onClick?: () => void;
-    variant?: "primary" | "secondary" | "danger" | "outline" ; // Define variant prop
+    variant?: "primary" | "secondary" | "danger" | "outline" | "link" ; // Define variant prop
     disabled?: boolean;
     size?: "small" | "medium" | "large";
 }
@@ -34,6 +34,7 @@ const Button: React.FC<ButtonProps> = ({
                 variant === "secondary" && styles.secondary, // Apply secondary variant styles
                 variant === "danger" && styles.danger, // Apply danger variant styles
                 variant === "outline" && styles.outline,
+                variant === "link" && styles.link,
                 size === "small" && styles.small,
                 size === "large" && styles.large,
 
@@ -43,5 +44,6 @@ const Button: React.FC<ButtonProps> = ({
         </button>
     );
 };
+
 
 export default Button;
