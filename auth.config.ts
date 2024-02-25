@@ -5,7 +5,6 @@ import bcrypt from "bcryptjs";
 
 import {LoginSchema} from "@/schemas";
 import {getUserByEmail} from "@/data/user";
-import {db} from "@/lib/db";
 
 
 export default {

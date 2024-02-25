@@ -2,6 +2,10 @@
 import * as z from "zod"
 import {RegisterSchema} from "@/schemas";
 
+import {generateVerificationToken} from "@/lib/tokens";
+
+import {sendVerificationEmail} from "@/lib/mail";
+
 import {db} from "@/lib/db";
 
 import bcrypt from "bcryptjs"
@@ -30,8 +34,15 @@ export const register  = async ( values : z.infer<typeof RegisterSchema>) =>{
 
 
 
-//Todo: Send verification token email.
+        const verificationToken = await generateVerificationToken(email);
+    await sendVerificationEmail(
+        verificationToken.email,
+        verificationToken.token,
+    );
 
-    return {success: "Email sent!"}
+
+
+
+    return {success: "Confirmation email sent! i have to check"}
 }
 

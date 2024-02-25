@@ -1,20 +1,17 @@
-.CardWrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 22rem;
+.authCard{
+    -webkit-box-shadow: 7px 6px 22px 0px rgb(199, 127, 4);
+    -moz-box-shadow: 7px 6px 22px 0px rgb(199, 127, 4);
+    box-shadow: 7px 6px 22px 0px rgb(199, 127, 4);
     border-radius: 15px;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    /*-webkit-box-shadow: 7px 6px 22px 0 rgba(199,127,4,1);*/
-    /*-moz-box-shadow: 7px 6px 22px 0 rgba(199,127,4,1);*/
-    /*box-shadow: 7px 6px 22px 0 rgba(199,127,4,1);*/
+}
+
+.CardWrapper{
+
+    width: 22rem;
+
 }
 .Form{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem ;
-    /*margin-top: 1.5rem;*/
-    /*background-color: #C05621;*/
+    width: 100%;
 }
 
 
@@ -33,10 +30,13 @@ justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
     width: 100%;
-    /*margin: 0.5rem;*/
 }
 
 .formInput{
-    /*margin-top: 1rem;*/
+    margin-right: 1rem;
+
+}
+
+.NewVerification{
 
 }

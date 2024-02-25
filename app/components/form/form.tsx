@@ -1,6 +1,5 @@
 import * as React from "react"
 import * as LabelPrimitive from "@radix-ui/react-label"
-// import {Label}from "../label/label";
 
 import {Label} from "@/app/components/label/label";
 

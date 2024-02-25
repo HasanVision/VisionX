@@ -15,6 +15,8 @@ import {LoginSchema} from "@/schemas";
 
 import {useState, useTransition} from "react";
 
+import {useSearchParams} from "next/navigation";
+
 import {
     Form,
     FormControl,
@@ -28,6 +30,11 @@ import {FormSuccess} from "@/app/components/formError/formSuccess";
 
 
 export const LoginForm = () => {
+
+    const searchParams = useSearchParams();
+    const urlError = searchParams.get("error") === "OAuthAccountNotLinked"
+    ? "Email already in use with different provider!"
+        : "";
 
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
@@ -49,8 +56,8 @@ export const LoginForm = () => {
         startTransition(()=>{
             login(values)
                 .then ((data) => {
-                    setError(data.error);
-                 //   setSuccess(data.success);
+                    setError(data?.error);
+                     setSuccess(data?.success);
                 })
         });
 
@@ -104,7 +111,7 @@ export const LoginForm = () => {
                            )}
                        />
                    </div>
-                   <FormError message={error}/>
+                   <FormError message={error || urlError}/>
                    <FormSuccess message={success}/>
 <Button type={"submit"} fullWidth={true}
 disabled={isPending}

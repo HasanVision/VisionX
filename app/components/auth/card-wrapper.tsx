@@ -29,6 +29,9 @@ export const CardWrapper= ({
     showSocial
                            }: CardWrapperProps) =>{
     return (
+        <div className={styles.authCard}>
+
+
         <Card className={styles.CardWrapper}>
             <CardHeader>
                 <Header label={headerLabel}/>
@@ -48,5 +51,6 @@ export const CardWrapper= ({
             </CardFooter>
 
         </Card>
+        </div>
     )
 }
