@@ -1,6 +1,6 @@
 
 "use client"
-import {register} from "@/actions/register"
+import {resetPassword} from "@/actions/reset-password"
 import styles from "./auth.module.css"
 
 import {CardWrapper} from "@/app/components/auth/card-wrapper";
@@ -11,9 +11,10 @@ import {Input} from "../input/input"
 import Button from "../Button/button"
 
 import * as z from "zod";
-import {RegisterSchema} from "@/schemas";
+import {ResetPasswordSchema} from "@/schemas";
 
 import {useState, useTransition} from "react";
+
 
 import {
     Form,
@@ -26,66 +27,47 @@ import {
 import {FormError} from "@/app/components/formError/form-error";
 import {FormSuccess} from "@/app/components/formError/formSuccess";
 
+import Link from "next/link";
+export const ResetPasswordForm = () => {
 
-export const RegisterForm = () => {
+
 
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
 
     const [isPending, startTransition] = useTransition();
-    const form = useForm<z.infer<typeof RegisterSchema>>({
-        resolver: zodResolver(RegisterSchema),
+    const form = useForm<z.infer<typeof ResetPasswordSchema>>({
+        resolver: zodResolver(ResetPasswordSchema),
         defaultValues: {
-            name: "",
             email: "",
-            password: "",
         }
     });
 
-    const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
+    const onSubmit = (values: z.infer<typeof ResetPasswordSchema>) => {
         setError("");
         setSuccess("");
 
 
         startTransition(()=>{
-            register(values)
+            resetPassword(values)
                 .then ((data) => {
-                    setError(data.error);
-                    setSuccess(data.success);
+                    setError(data?.error);
+                     setSuccess(data?.success);
                 })
         });
 
     }
     return(
         <CardWrapper
-        headerLabel="Create an account"
+        headerLabel="Reset your password"
         backButtonHref="/auth/login"
-        backButtonLabel="Already have an account? login"
-        // showSocial
+        backButtonLabel="Back to login"
         >
            <Form {...form} >
                <form className={styles.Form}
                    onSubmit={form.handleSubmit(onSubmit)}
                >
                    <div className={styles.formInput}>
-                       <FormField
-                           control={form.control}
-                           name="name"
-                           render={({field})=>(
-                               <FormItem>
-                                   <FormLabel>Name</FormLabel>
-                                   <FormControl>
-                                       <Input
-                                           disabled={isPending}
-                                           placeholder="John Doe"
-                                           {...field}
-                                           // type="name"
-                                       />
-                                   </FormControl>
-                                   <FormMessage/>
-                               </FormItem>
-                           )}
-                       />
                        <FormField
                        control={form.control}
                        name="email"
@@ -104,31 +86,13 @@ export const RegisterForm = () => {
                            </FormItem>
                        )}
                        />
-                       <FormField
-                           control={form.control}
-                           name="password"
-                           render={({field})=>(
-                               <FormItem>
-                                   <FormLabel>Password</FormLabel>
-                                   <FormControl>
-                                       <Input
-                                            disabled={isPending}
-                                           placeholder="******"
-                                           {...field}
-                                           type="password"
-                                       />
-                                   </FormControl>
-                                   <FormMessage/>
-                               </FormItem>
-                           )}
-                       />
                    </div>
                    <FormError message={error}/>
                    <FormSuccess message={success}/>
 <Button type={"submit"} fullWidth={true}
 disabled={isPending}
 >
-   Register
+   Send reset email
 </Button>
                </form>
            </Form>

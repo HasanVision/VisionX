@@ -1,6 +1,6 @@
 
 "use client"
-import {login} from "@/actions/login"
+import {newPassword} from "@/actions/new-password"
 import styles from "./auth.module.css"
 
 import {CardWrapper} from "@/app/components/auth/card-wrapper";
@@ -11,11 +11,12 @@ import {Input} from "../input/input"
 import Button from "../Button/button"
 
 import * as z from "zod";
-import {LoginSchema} from "@/schemas";
+import {NewPasswordSchema} from "@/schemas";
 
 import {useState, useTransition} from "react";
 
 import {useSearchParams} from "next/navigation";
+
 
 import {
     Form,
@@ -29,32 +30,30 @@ import {FormError} from "@/app/components/formError/form-error";
 import {FormSuccess} from "@/app/components/formError/formSuccess";
 
 import Link from "next/link";
-export const LoginForm = () => {
+export const NewPasswordForm = () => {
 
-    const searchParams = useSearchParams();
-    const urlError = searchParams.get("error") === "OAuthAccountNotLinked"
-    ? "Email already in use with different provider!"
-        : "";
+    const searchParams= useSearchParams();
+    const token = searchParams.get("token")
+
 
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
 
     const [isPending, startTransition] = useTransition();
-    const form = useForm<z.infer<typeof LoginSchema>>({
-        resolver: zodResolver(LoginSchema),
+    const form = useForm<z.infer<typeof NewPasswordSchema>>({
+        resolver: zodResolver(NewPasswordSchema),
         defaultValues: {
-            email: "",
             password: "",
         }
     });
 
-    const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+    const onSubmit = (values: z.infer<typeof NewPasswordSchema>) => {
         setError("");
         setSuccess("");
 
 
         startTransition(()=>{
-            login(values)
+            newPassword(values, token)
                 .then ((data) => {
                     setError(data?.error);
                      setSuccess(data?.success);
@@ -64,10 +63,9 @@ export const LoginForm = () => {
     }
     return(
         <CardWrapper
-        headerLabel="Welcom to VisionX"
-        backButtonHref="/auth/register"
-        backButtonLabel="Create an account"
-        // showSocial
+        headerLabel="Enter a new Password"
+        backButtonHref="/auth/login"
+        backButtonLabel="Back to login"
         >
            <Form {...form} >
                <form className={styles.Form}
@@ -76,53 +74,29 @@ export const LoginForm = () => {
                    <div className={styles.formInput}>
                        <FormField
                        control={form.control}
-                       name="email"
+                       name="password"
                        render={({field})=>(
                            <FormItem>
-                               <FormLabel>Email</FormLabel>
+                               <FormLabel>New password</FormLabel>
                                <FormControl>
                                    <Input
                                        disabled={isPending}
-                                     placeholder="John.doe@example.com"
+                                     placeholder="******"
                                        {...field}
-                                       type="email"
+                                       type="password"
                                    />
                                </FormControl>
                                <FormMessage/>
                            </FormItem>
                        )}
                        />
-                       <FormField
-                           control={form.control}
-                           name="password"
-                           render={({field})=>(
-                               <FormItem>
-                                   <FormLabel>Password</FormLabel>
-                                   <FormControl>
-                                       <Input
-                                            disabled={isPending}
-                                           placeholder="******"
-                                           {...field}
-                                           type="password"
-                                       />
-                                   </FormControl>
-                                   <Button variant={"link"} >
-                                       <Link href={"/auth/reset-password"}>
-                                           Forgot password?
-                                       </Link>
-                                   </Button>
-
-                                   <FormMessage/>
-                               </FormItem>
-                           )}
-                       />
                    </div>
-                   <FormError message={error || urlError}/>
+                   <FormError message={error}/>
                    <FormSuccess message={success}/>
 <Button type={"submit"} fullWidth={true}
 disabled={isPending}
 >
-   Login
+   Update password
 </Button>
                </form>
            </Form>

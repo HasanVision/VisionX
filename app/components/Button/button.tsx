@@ -3,13 +3,14 @@ import React from "react";
 import styles from "./button.module.css";
 
 interface ButtonProps {
-    type?: "button" | "submit" | "reset" |  undefined;
+    type?: "button" | "submit" | "reset" | undefined;
     fullWidth?: boolean;
     children?: React.ReactNode;
     onClick?: () => void;
-    variant?: "primary" | "secondary" | "danger" | "outline" | "link" ; // Define variant prop
+    variant?: "primary" | "secondary" | "danger" | "outline" | "link"; // Define variant prop
     disabled?: boolean;
     size?: "small" | "medium" | "large";
+    asChild?: boolean; // Add asChild prop
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,31 +20,35 @@ const Button: React.FC<ButtonProps> = ({
                                            onClick,
                                            variant = "primary", // Default to primary variant
                                            disabled,
-                                           size = "medium"
+                                           size = "medium",
+                                           asChild = false, // Default asChild to false
                                        }) => {
-    return (
-        <button
-            onClick={onClick}
-            type={type}
-            disabled={disabled}
-            className={clsx(
-                styles.button,
-                disabled && styles.disabled,
-                fullWidth && styles.fullWidth,
-                variant === "primary" && styles.primary, // Apply primary variant styles
-                variant === "secondary" && styles.secondary, // Apply secondary variant styles
-                variant === "danger" && styles.danger, // Apply danger variant styles
-                variant === "outline" && styles.outline,
-                variant === "link" && styles.link,
-                size === "small" && styles.small,
-                size === "large" && styles.large,
+    const buttonClasses = clsx(
+        styles.button,
+        disabled && styles.disabled,
+        fullWidth && styles.fullWidth,
+        variant === "primary" && styles.primary, // Apply primary variant styles
+        variant === "secondary" && styles.secondary, // Apply secondary variant styles
+        variant === "danger" && styles.danger, // Apply danger variant styles
+        variant === "outline" && styles.outline,
+        variant === "link" && styles.link,
+        size === "small" && styles.small,
+        size === "large" && styles.large,
+    );
 
-            )}
-        >
+    if (asChild) {
+        return (
+            <div className={buttonClasses} onClick={onClick} role="button" aria-disabled={disabled}>
+                {children}
+            </div>
+        );
+    }
+
+    return (
+        <button className={buttonClasses} onClick={onClick} type={type} disabled={disabled}>
             {children}
         </button>
     );
 };
-
 
 export default Button;

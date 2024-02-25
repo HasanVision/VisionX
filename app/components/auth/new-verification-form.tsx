@@ -54,7 +54,6 @@ export const NewVerificationForm = () => {
                 {!success && (
                     <FormError message={error}/>
                 )}
-
                 <FormSuccess message={success}/>
             </div>
         </CardWrapper>
