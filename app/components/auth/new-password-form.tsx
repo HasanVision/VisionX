@@ -29,7 +29,6 @@ import {
 import {FormError} from "@/app/components/formError/form-error";
 import {FormSuccess} from "@/app/components/formError/formSuccess";
 
-import Link from "next/link";
 export const NewPasswordForm = () => {
 
     const searchParams= useSearchParams();

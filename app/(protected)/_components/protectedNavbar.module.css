@@ -1,8 +1,16 @@
 .Navbar{
-    background-color: #C05621;
+    background-color: #ea5003;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 15px;
-    width: 28rem;
+    width: 30rem;
+    margin: 0.5rem;
+    padding: 1rem;
+    color: #f5f1f1;
+}
+
+.Navbar > div {
+    display: flex;
+    gap: 0.5rem;
 }

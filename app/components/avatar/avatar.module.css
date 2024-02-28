@@ -1,0 +1,44 @@
+.avatarMain{
+    position: relative;
+}
+.avatarSec {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    border-radius: 9999px;
+    height: 2.5rem;
+    width: 2.5rem;
+
+}
+
+@media (min-width: 768px) {
+    .avatarSec {
+        width: 2.75rem;
+        height: 2.75rem;
+
+    }
+}
+
+
+.avatarSpan{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 9999px;
+    --ring-color: #ffffff;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #10B981;
+
+
+
+}
+
+@media  (min-width: 768px) {
+    .avatarSpan{
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+
+}
