@@ -10,9 +10,9 @@ interface HeaderProps {
 
 export const Header = ({
     label,
-                       }: HeaderProps) => {
+}: HeaderProps) => {
 
-    return(
+    return (
         <div className={styles.authHeader}>
             <h1>
                 VisionX

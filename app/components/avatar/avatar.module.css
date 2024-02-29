@@ -1,15 +1,19 @@
 .avatarMain{
     position: relative;
+    border-radius: 50%;
 }
 .avatarSec {
     display: inline-block;
     overflow: hidden;
     position: relative;
-    border-radius: 9999px;
+    border-radius: 50%;
     height: 2.5rem;
     width: 2.5rem;
+    border: 2px solid #ffffff; 
 
 }
+
+
 
 @media (min-width: 768px) {
     .avatarSec {

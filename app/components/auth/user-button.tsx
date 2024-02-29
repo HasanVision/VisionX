@@ -3,17 +3,18 @@
 
 import {
     DropdownMenu,
-
+    DropdownMenuTrigger,
+    DropdownMenuItem
 } from "../dropdown/dropdown"
 
-import Avatar from "../avatar/avatar"
+import Avatar from "../avatar/avatar";
 
-export const UserButton = () => {
+const UserButton = () => {
     return (
-        <DropdownMenu trigger={} >
-           <Avatar />
-        </DropdownMenu>
+        <div>
+            <Avatar />
+        </div>
     )
-}
+};
 
 export default UserButton;

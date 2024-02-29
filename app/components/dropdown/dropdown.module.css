@@ -1,0 +1,31 @@
+.dropdownMenuItem {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownMenuLabel {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdownMenuTrigger {
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+  color: #333;
+}
+
+.dropdown-menu-item:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-menu-trigger {
+  background-color: #f9f9f9;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}

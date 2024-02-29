@@ -17,9 +17,8 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
         <div className={styles.avatarMain}>
             <div className={styles.avatarSec}>
                 <Image
-
                     fill
-                    src={ '/public/next.svg'}
+                    src={user?.image || '/images/placeholder.jpeg'}
                     alt="Avatar"
                 />
             </div>
