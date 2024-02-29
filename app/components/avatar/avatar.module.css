@@ -1,7 +1,9 @@
-.avatarMain{
+.avatarMain {
     position: relative;
     border-radius: 50%;
 }
+
+
 .avatarSec {
     display: inline-block;
     overflow: hidden;
@@ -9,22 +11,21 @@
     border-radius: 50%;
     height: 2.5rem;
     width: 2.5rem;
-    border: 2px solid #ffffff; 
+    border: 2px solid #ffffff;
 
 }
 
-
-
+/* 
 @media (min-width: 768px) {
     .avatarSec {
         width: 2.75rem;
         height: 2.75rem;
 
     }
-}
+} */
 
 
-.avatarSpan{
+.avatarSpan {
     display: block;
     position: absolute;
     top: 0;
@@ -39,10 +40,11 @@
 
 }
 
-@media  (min-width: 768px) {
-    .avatarSpan{
+/* 
+@media (min-width: 768px) {
+    .avatarSpan {
         width: 0.75rem;
         height: 0.75rem;
     }
 
-}
+} */
