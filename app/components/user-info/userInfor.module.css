@@ -1,0 +1,33 @@
+.userInfoCardHeader {
+    width: 700px;
+}
+
+.userInfoCardHeader>p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    text-align: center;
+
+}
+
+
+.userInfoContent {
+    margin-top: 1rem;
+
+
+
+}
+
+.userInfoContent>div {
+    display: flex;
+    padding: 0.75rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+    border-width: 1px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    background-color: rgb(129, 115, 81);
+    margin-top: 0.5rem;
+
+}

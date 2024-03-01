@@ -1,14 +1,14 @@
 
-import {PrismaAdapter} from "@auth/prisma-adapter";
-import {db} from "@/lib/db"
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { db } from "@/lib/db"
 import NextAuth from "next-auth"
-import {getUserById} from "@/data/user";
+import { getUserById } from "@/data/user";
 
-import {getTwoFactorConfirmationByUserId} from "@/data/two-factor-confirmation";
+import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
 
 import authConfig from "@/auth.config";
 
-import {UserRole} from "@prisma/client"
+import { UserRole } from "@prisma/client"
 
 
 
@@ -30,11 +30,11 @@ export const {
     //         })
     //     }
     // },
-    callbacks:{
-        async signIn({user, account}) {
+    callbacks: {
+        async signIn({ user, account }) {
             if (account?.provider !== "credentials") return true;
 
-            const existingUser = await getUserById(user.id?? ''); // ToDo: check if this is valid argument!
+            const existingUser = await getUserById(user.id ?? ''); // ToDo: check if this is valid argument!
 
             if (!existingUser?.emailVerified) return false;
 
@@ -46,24 +46,25 @@ export const {
 
 
                 await db.twoFactorConfirmation.delete({
-                    where: { id: twoFactorConfirmation.id}
+                    where: { id: twoFactorConfirmation.id }
                 });
 
             }
             return true;
         },
-        async session({token,session }){
+        async session({ token, session }) {
 
             if (token.sub && session.user) {
                 session.user.id = token.sub;
             }
             if (token.role && session.user) {
-                session.user.role=token.role as UserRole; // Not very clean solution
+                session.user.role = token.role as UserRole; // Not very clean solution
 
             }
+            if (session.user) { session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean }
             return session;
         },
-        async jwt({token }) {
+        async jwt({ token }) {
             if (!token.sub) return token;
 
             const existingUser = await getUserById(token.sub);
@@ -71,6 +72,7 @@ export const {
             if (!existingUser) return token;
 
             token.role = existingUser.role;
+            token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
 
 
 
@@ -78,6 +80,6 @@ export const {
         }
     },
     adapter: PrismaAdapter(db),
-    session: {strategy: "jwt"},
-...authConfig
+    session: { strategy: "jwt" },
+    ...authConfig
 })
