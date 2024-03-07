@@ -18,6 +18,7 @@
     padding: 4rem 0;
 }
 
+
 .center::before {
     background: var(--secondary-glow);
     border-radius: 50%;

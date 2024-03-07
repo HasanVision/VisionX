@@ -7,11 +7,10 @@ const AuthLayout = ({
 }: { children: React.ReactNode }) => {
     return (
         <div className={styles.AuthLayout}>
-            <div className={styles.center} />
+            {/* <div className={styles.center} /> */}
             <div className={styles.position}>
                 {children}
             </div>
-
         </div>
     )
 

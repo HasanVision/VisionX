@@ -2,7 +2,7 @@
     display: flex;
     height: 1.5rem;
     width: 100%;
-    border-radius: 0.5rem;
+    border-radius: 8px;
     border: 1px solid #ccc;
     /* Added a solid border */
     padding: 0.25rem 0.5rem;

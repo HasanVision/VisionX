@@ -1,7 +1,8 @@
-.formErrorMessage{
+.formErrorMessage {
     background-color: #f3d2d2;
+    height: 50px;
     /*opacity: 70%;*/
-    border-radius: 10px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     /*column-gap: 0.5rem;*/
@@ -13,7 +14,7 @@
 
 }
 
-.formSuccessMessage{
+.formSuccessMessage {
     background-color: #ddf3d2;
     /*opacity: 70%;*/
     border-radius: 10px;
