@@ -16,26 +16,27 @@ export const Navbar = () => {
         <nav className={styles.Navbar}>
 
             <div>
-                <Button asChild={true} variant={pathname === "/settings" ? "primary" : "outline"}>
-                    <Link href={"/setting"}>
+                <Button asChild={true} variant={pathname === "/settings" ? "primary" : "secondary"}>
+                    <Link href={"/settings"}>
                         Settings
                     </Link>
                 </Button>
-                <Button asChild={true} variant={pathname === "/server" ? "primary" : "outline"}>
+                <Button asChild={true} variant={pathname === "/server" ? "primary" : "secondary"}>
                     <Link href={"/server"}>
                         Server
                     </Link>
                 </Button>
-                <Button asChild={true} variant={pathname === "/client" ? "primary" : "outline"}>
+                <Button asChild={true} variant={pathname === "/client" ? "primary" : "secondary"}>
                     <Link href={"/client"}>
                         Client
                     </Link>
                 </Button>
-                <Button asChild={true} variant={pathname === "/Admin" ? "primary" : "outline"}>
+                <Button asChild={true} variant={pathname === "/Admin" ? "primary" : "secondary"}>
                     <Link href={"/Admin"}>
                         Admin
                     </Link>
                 </Button>
+
             </div>
             <UserButton />
         </nav>

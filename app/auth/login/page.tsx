@@ -1,10 +1,8 @@
-import {LoginForm} from "@/app/components/auth/login-form";
-
-const LoginPage = () =>{
-    return(
-
-           <LoginForm/>
-
+import { LoginForm } from "@/app/components/auth/login-form";
+import styles from "@/app/page.module.css"
+const LoginPage = () => {
+    return (
+        <LoginForm />
     )
 }
 

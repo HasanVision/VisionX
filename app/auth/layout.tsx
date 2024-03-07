@@ -4,10 +4,13 @@ import React from "react";
 
 const AuthLayout = ({
     children
-                    }: {children: React.ReactNode}) =>{
+}: { children: React.ReactNode }) => {
     return (
         <div className={styles.AuthLayout}>
-            {children}
+            {/* <div className={styles.center} /> */}
+            <div className={styles.position}>
+                {children}
+            </div>
         </div>
     )
 
