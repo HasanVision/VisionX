@@ -1,13 +1,13 @@
 .Navbar {
-    background-color: #606af5;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
     width: 40rem;
-    /* margin: 0.5rem; */
+
     padding: 0.5rem;
-    /* color: #f5f1f1; */
+
 }
 
 .Navbar>div {
