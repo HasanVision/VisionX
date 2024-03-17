@@ -1,6 +1,6 @@
 
 import { UserInfo } from "@/app/components/user-info/user-info";
-import { currentUser } from "@/lib/user-session";
+import { currentUser } from "@/lib/auth";
 
 
 const ServerPage = async () => {
@@ -12,4 +12,4 @@ const ServerPage = async () => {
 }
 
 
-export default ServerPage;
+export default ServerPage; 

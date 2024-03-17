@@ -32,7 +32,7 @@ export const Navbar = () => {
                     </Link>
                 </Button>
                 <Button asChild={true} variant={pathname === "/Admin" ? "primary" : "secondary"}>
-                    <Link href={"/Admin"}>
+                    <Link href={"/admin"}>
                         Admin
                     </Link>
                 </Button>
