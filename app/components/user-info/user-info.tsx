@@ -5,6 +5,8 @@ import styles from "./userInfor.module.css"
 
 import { Badge } from "../badge/badge";
 
+import Button from "../Button/button"
+
 interface userInfoProps {
     user?: ExtendedUser;
     label: string;
@@ -56,9 +58,12 @@ export const UserInfo = ({ user, label }: userInfoProps) => {
                     <p >
                         Two factor authentication
                     </p>
-                    <Badge variant={user?.isTwoFactorEnabled ? "default" : "destructive"}>
-                        {user?.isTwoFactorEnabled ? "ON" : "OFF"}
-                    </Badge>
+                    <Button size="large">
+                        <Badge variant={user?.isTwoFactorEnabled ? "success" : "destructive"}>
+                            {user?.isTwoFactorEnabled ? "ON" : "OFF"}
+                        </Badge>
+                    </Button>
+
                 </div>
 
             </CardContent>
