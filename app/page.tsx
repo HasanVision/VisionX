@@ -12,15 +12,18 @@ export default function Home() {
           🔐Vision X
         </h1>
       </div>
-      <div className={styles.center}>
+      {/* <div className={styles.center}>
 
-      </div>
+      </div> */}
 
-      <Button>
-        <LoginButton>
+
+      <LoginButton asChild>
+        <Button>
           Sign in
-        </LoginButton>
-      </Button>
+        </Button>
+
+      </LoginButton>
+
 
     </main>
   );
