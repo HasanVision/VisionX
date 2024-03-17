@@ -1,24 +1,28 @@
- // to do the validation on the front-end and the back end
- //
- //
+// to do the validation on the front-end and the back end
+//
+//
 
 
 import * as z from "zod";
 
+export const SettingsSchema = z.object({
+    name: z.optional(z.string())
+})
 
- export const NewPasswordSchema = z.object({
-     password: z.string().min(6, {
-         message: "Minimum 6 characters required!"
-     })
- })
- export const ResetPasswordSchema = z.object({
-     email: z.string().email(
-         {message: "Email is required"}
-     ),
- })
+
+export const NewPasswordSchema = z.object({
+    password: z.string().min(6, {
+        message: "Minimum 6 characters required!"
+    })
+})
+export const ResetPasswordSchema = z.object({
+    email: z.string().email(
+        { message: "Email is required" }
+    ),
+})
 export const LoginSchema = z.object({
     email: z.string().email(
-         {message: "Email is required"}
+        { message: "Email is required" }
     ),
     password: z.string().min(1, {
         message: "Password is required"
@@ -27,14 +31,15 @@ export const LoginSchema = z.object({
 })
 
 
- export const RegisterSchema = z.object({
-     email: z.string().email(
-         {message: "Email is required"}
-     ),
-     password: z.string().min(6, {
-         message: "Minimum 6 characters required"}
-     ),
-         name: z.string().min(1, {
-             message: "Name is required"
- }),
- })
+export const RegisterSchema = z.object({
+    email: z.string().email(
+        { message: "Email is required" }
+    ),
+    password: z.string().min(6, {
+        message: "Minimum 6 characters required"
+    }
+    ),
+    name: z.string().min(1, {
+        message: "Name is required"
+    }),
+})
