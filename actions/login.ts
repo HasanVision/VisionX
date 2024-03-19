@@ -2,7 +2,7 @@
 import * as z from "zod"
 import { LoginSchema } from "@/schemas";
 
-import {db} from "@/lib/db"
+import { db } from "@/lib/db"
 
 import { signIn } from "@/auth"
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
@@ -11,10 +11,10 @@ import { AuthError } from "next-auth";
 import { generateVerificationToken, generateTwoFactorToken } from "@/lib/tokens";
 import { getUserByEmail } from "@/data/user";
 import { sendVerificationEmail, sendTwoFactorEmail } from "@/lib/mail";
-import {getTwoFactorTokenByEmail} from "@/data/two-factor-token";
-import {getTwoFactorConfirmationByUserId} from "@/data/two-factor-confirmation";
+import { getTwoFactorTokenByEmail } from "@/data/two-factor-token";
+import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
 
-export const login = async (values: z.infer<typeof LoginSchema>) => {
+export const login = async (values: z.infer<typeof LoginSchema>, callbackUrl?: string | null) => {
     const validatedFields = LoginSchema.safeParse(values);
     if (!validatedFields.success) {
         return { error: "Invalid fields!" }
@@ -42,14 +42,14 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
             );
 
             if (!twoFactorToken)
-                return {error: "Invalid code!"}
+                return { error: "Invalid code!" }
 
             if (twoFactorToken.token !== code) {
-                return {error: "Invalid code!"}
+                return { error: "Invalid code!" }
             }
             const hasExpired = new Date(twoFactorToken.expires) < new Date();
             if (hasExpired) {
-                return {error: "Code expired!"}
+                return { error: "Code expired!" }
             }
 
             await db.twoFactorToken.delete({
@@ -63,7 +63,7 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
 
             if (existingConfirmation) {
                 await db.twoFactorConfirmation.delete({
-                    where: {id: existingConfirmation.id}
+                    where: { id: existingConfirmation.id }
                 });
             }
 
@@ -75,19 +75,19 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
 
 
         } else {
-        const twoFactorToken = await generateTwoFactorToken(existingUser.email);
-        await sendTwoFactorEmail(
-            twoFactorToken.email,
-            twoFactorToken.token
-        );
-        return {twoFactor: true}
-    }
+            const twoFactorToken = await generateTwoFactorToken(existingUser.email);
+            await sendTwoFactorEmail(
+                twoFactorToken.email,
+                twoFactorToken.token
+            );
+            return { twoFactor: true }
+        }
     }
 
     try {
         await signIn("credentials", {
             email, password,
-            redirectTo: DEFAULT_LOGIN_REDIRECT
+            redirectTo: callbackUrl || DEFAULT_LOGIN_REDIRECT
         })
     } catch (error) {
         if (error instanceof AuthError) {

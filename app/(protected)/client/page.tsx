@@ -3,12 +3,12 @@
 
 
 import { UserInfo } from "@/app/components/user-info/user-info";
-import { UseCurrentUser } from "@/hooks/use-current-user";
+import { useCurrentUser } from "@/hooks/use-current-user";
 
 
 const ClientPage = () => {
 
-    const user = UseCurrentUser();
+    const user = useCurrentUser();
     return (
         <UserInfo label=" 📱 Client component" user={user} />
     )
