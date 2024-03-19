@@ -19,7 +19,7 @@ export default function Home() {
 
       <LoginButton asChild>
         <Button>
-          Sign in
+          Sign in here
         </Button>
 
       </LoginButton>
