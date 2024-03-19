@@ -9,7 +9,7 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.description}>
         <h1>
-          🔐Vision X
+          🔐Vision X why git not working
         </h1>
       </div>
       <div className={styles.center}>
