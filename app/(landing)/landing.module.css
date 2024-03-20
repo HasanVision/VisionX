@@ -1,0 +1,28 @@
+.LandingLayout {
+  height: 100%;
+  background-color: greenyellow;
+
+}
+
+.LandingLayoutMain {
+  padding-top: 10rem;
+  padding-bottom: 5rem;
+}
+
+.landingPage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+
+/* .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: yellowgreen;
+  height: 100vh;
+}
+ */
