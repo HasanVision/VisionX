@@ -1,5 +1,5 @@
 
-import { UserInfo } from "@/app/components/user-info/user-info";
+import { UserInfo } from "@/app/_components/user-info/user-info";
 import { currentUser } from "@/lib/auth";
 
 

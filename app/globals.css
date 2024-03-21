@@ -1,3 +1,107 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body,
+:root {
+
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+
+
+  height: 100%;
+  --border-radius: 12px;
+  --element-primary-color: rgb(1, 110, 47);
+  --element-secondary-color: rgb(53, 169, 101);
+
+
+
+  --tile-start-rgb: 136, 2, 2;
+  --tile-end-rgb: 255, 179, 13;
+  --tile-border: conic-gradient(#d40c0c80,
+      #00000040,
+      #00000030,
+      #6ed11220,
+      #00000010,
+      #00000010,
+      #87040480);
+
+
+
+
+  /* Light theme colors */
+  --background-primary-color-light: rgb(18, 0, 87);
+  --background-secondary-color-light: rgb(71, 0, 169);
+  --text-color-light: rgb(255, 255, 255);
+
+
+  /* Dark theme colors */
+  --background-primary-color-dark: rgb(18, 0, 87);
+  --background-secondary-color-dark: rgb(71, 0, 169);
+  --text-color-dark: rgb(255, 255, 255);
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    color: var(--text-color-light);
+  }
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    color: var(--text-color-dark);
+  }
+
+}
+
+
+
+
+
+/* Color Theme Swatches in RGBA */
+.Blue-mustard-sandwich-1-rgba {
+  color: rgba(0, 20, 66, 1);
+}
+
+.Blue-mustard-sandwich-2-rgba {
+  color: rgba(7, 84, 83, 1);
+}
+
+.Blue-mustard-sandwich-3-rgba {
+  color: rgba(122, 122, 122, 1);
+}
+
+.Blue-mustard-sandwich-4-rgba {
+  color: rgba(255, 255, 255, 1);
+}
+
+.Blue-mustard-sandwich-5-rgba {
+  color: rgba(255, 179, 13, 1);
+}
+
+
+
 /* :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -64,33 +168,11 @@
   }
 } */
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
 
-html,
-body {
-  :root {
-    height: 100%;
-  }
-}
 
 /* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-} */
-
-/* a {
-  color: inherit;
-  text-decoration: none;
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 } */

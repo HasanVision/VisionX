@@ -3,9 +3,9 @@
 import styles from "./protectedNavbar.module.css";
 
 import { usePathname } from "next/navigation";
-import Button from "../../components/Button/button"
+import Button from "../../_components/Button/button"
 import Link from "next/link"
-import { UserButton } from "@/app/components/auth/user-button";
+import { UserButton } from "@/app/_components/auth/user-button";
 export const Navbar = () => {
 
 

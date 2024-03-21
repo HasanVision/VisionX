@@ -1,7 +1,7 @@
 import * as React from "react"
 import * as LabelPrimitive from "@radix-ui/react-label"
 
-import {Label} from "@/app/components/label/label";
+import { Label } from "@/app/_components/label/label";
 
 import {
     Controller,
@@ -33,8 +33,8 @@ const FormField = <
     TFieldValues extends FieldValues = FieldValues,
     TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 >({
-      ...props
-  }: ControllerProps<TFieldValues, TName>) => {
+    ...props
+}: ControllerProps<TFieldValues, TName>) => {
     return (
         <FormFieldContext.Provider value={{ name: props.name }}>
             <Controller {...props} />
@@ -97,7 +97,7 @@ const FormLabel = React.forwardRef<
         <Label
             // className={`${error ? styles.FormLabel : ''}`}
             ref={ref}
-             className={cn(error && styles.FormLabel, className)}
+            className={cn(error && styles.FormLabel, className)}
             htmlFor={formItemId}
             {...props}
         />

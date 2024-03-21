@@ -1,6 +1,6 @@
 
 
-import { Header } from "../components/landing-page-components/header/header"
+import { Header } from "./_components/header/header"
 import styles from "./landing.module.css"
 
 const LandingLayout = ({

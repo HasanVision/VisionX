@@ -3,7 +3,7 @@
 import { login } from "@/actions/login"
 import styles from "./auth.module.css"
 
-import { CardWrapper } from "@/app/components/auth/card-wrapper";
+import { CardWrapper } from "@/app/_components/auth/card-wrapper";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -25,8 +25,8 @@ import {
     FormMessage,
     FormLabel
 } from "../form/form"
-import { FormError } from "@/app/components/formError/form-error";
-import { FormSuccess } from "@/app/components/formError/formSuccess";
+import { FormError } from "@/app/_components/formError/form-error";
+import { FormSuccess } from "@/app/_components/formError/formSuccess";
 
 import Link from "next/link";
 export const LoginForm = () => {
