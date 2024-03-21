@@ -1,7 +1,5 @@
 .LandingLayout {
   height: 100%;
-  background-color: greenyellow;
-
 }
 
 .LandingLayoutMain {
@@ -14,15 +12,18 @@
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+
 }
 
-
-/* .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.landingPageIntroduction {
+  margin-bottom: 1rem;
   align-items: center;
-  background: yellowgreen;
-  height: 100vh;
+  font-weight: 500;
+  font-size: 30px;
+  padding: 1rem;
+  border: 10px;
+  background: linear-gradient(to right, var(--background-primary-color-dark), var(--background-secondary-color-dark));
+  border-color: var(--primary-border-color-dark);
+  border-radius: var(--border-radius);
+
 }
- */

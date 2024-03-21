@@ -1,10 +1,10 @@
 "use client"
 
 import { admin } from "@/actions/admin";
-import Button from "@/app/components/Button/button";
-import { RoleGate } from "@/app/components/auth/role-gate";
-import { Card, CardContent, CardHeader } from "@/app/components/card/card";
-import { FormSuccess } from "@/app/components/formError/formSuccess";
+import Button from "@/app/_components/Button/button";
+import { RoleGate } from "@/app/_components/auth/role-gate";
+import { Card, CardContent, CardHeader } from "@/app/_components/card/card";
+import { FormSuccess } from "@/app/_components/formError/formSuccess";
 
 import { UserRole } from "@prisma/client";
 import { toast } from "sonner";

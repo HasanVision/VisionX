@@ -2,14 +2,14 @@
 import styles from "./auth.module.css"
 
 import { BeatLoader } from "react-spinners";
-import {useCallback, useEffect, useState} from "react";
-import {useSearchParams} from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
-import {newVerification} from "@/actions/new-verification";
+import { newVerification } from "@/actions/new-verification";
 
-import {FormError} from "@/app/components/formError/form-error";
-import {FormSuccess} from "@/app/components/formError/formSuccess";
-import {CardWrapper} from "@/app/components/auth/card-wrapper";
+import { FormError } from "@/app/_components/formError/form-error";
+import { FormSuccess } from "@/app/_components/formError/formSuccess";
+import { CardWrapper } from "@/app/_components/auth/card-wrapper";
 
 export const NewVerificationForm = () => {
 
@@ -34,14 +34,14 @@ export const NewVerificationForm = () => {
                 setSuccess(data.error);
                 setSuccess(data.success);
             })
-            .catch(() =>{
+            .catch(() => {
                 setError("Something went wrong!")
             })
-    },[token, error, success]);
+    }, [token, error, success]);
 
     useEffect(() => {
         onSubmit();
-    },[onSubmit]);
+    }, [onSubmit]);
 
 
 
@@ -52,9 +52,9 @@ export const NewVerificationForm = () => {
                     <BeatLoader />
                 )}
                 {!success && (
-                    <FormError message={error}/>
+                    <FormError message={error} />
                 )}
-                <FormSuccess message={success}/>
+                <FormSuccess message={success} />
             </div>
         </CardWrapper>
 

@@ -2,7 +2,7 @@
 
 
 
-import { UserInfo } from "@/app/components/user-info/user-info";
+import { UserInfo } from "@/app/_components/user-info/user-info";
 import { useCurrentUser } from "@/hooks/use-current-user";
 
 
