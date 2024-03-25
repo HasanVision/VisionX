@@ -1,0 +1,23 @@
+.logo {
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+    color: var(--secondary);
+}
+
+.logo:hover {
+    opacity: 0.75;
+}
+
+@media (max-width: 786px) {
+    .logo {
+        display: none;
+    }
+}
+
+.logo p {
+    padding-left: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+}

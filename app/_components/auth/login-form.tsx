@@ -75,7 +75,7 @@ export const LoginForm = () => {
     }
     return (
         <CardWrapper
-            headerLabel="Welcom to VisionX"
+            headerLabel="Welcome to VisionX"
             backButtonHref="/auth/register"
             backButtonLabel="Create an account"
         // showSocial

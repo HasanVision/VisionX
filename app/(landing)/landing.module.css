@@ -1,5 +1,10 @@
 .LandingLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   height: 100%;
+
 }
 
 .LandingLayoutMain {
@@ -8,11 +13,11 @@
 }
 
 .landingPage {
+  height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
 
+  flex-direction: column;
 }
 
 .landingPageIntroduction {
@@ -21,9 +26,40 @@
   font-weight: 500;
   font-size: 30px;
   padding: 1rem;
-  border: 10px;
-  background: linear-gradient(to right, var(--background-primary-color-dark), var(--background-secondary-color-dark));
-  border-color: var(--primary-border-color-dark);
-  border-radius: var(--border-radius);
+  text-transform: uppercase;
+  background: linear-gradient(to right, rgb(9, 9, 121) 0%, rgb(0, 212, 255) 100%);
+  color: transparent;
 
+
+  border-radius: var(--border-radius);
+}
+
+.landingPageIntroduction p {
+  background-image: linear-gradient(to left, #000000 0%, #FFFFFF 100%);
+  background-clip: text;
+}
+
+
+.slider {
+  border-radius: var(--border-radius);
+  background: linear-gradient(to right, rgb(9, 9, 121) 0%, rgb(0, 212, 255) 100%);
+
+}
+
+.slider h1 {
+  padding: 3rem;
+  text-align: center;
+  font-size: 3rem;
+  background-clip: text;
+
+
+}
+
+
+@media (max-width: 768px) {
+
+  .landingPage h1 {
+    font-size: 2rem;
+    line-height: 1;
+  }
 }
