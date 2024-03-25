@@ -7,22 +7,22 @@ interface ButtonProps {
     fullWidth?: boolean;
     children?: React.ReactNode;
     onClick?: () => void;
-    variant?: "primary" | "secondary" | "danger" | "outline" | "link"; // Define variant prop
+    variant?: "primary" | "secondary" | "danger" | "outline" | "link" | "ghost"; // Define variant prop
     disabled?: boolean;
     size?: "small" | "medium" | "large";
     asChild?: boolean; // Add asChild prop
 }
 
 const Button: React.FC<ButtonProps> = ({
-                                           type = "button",
-                                           fullWidth,
-                                           children,
-                                           onClick,
-                                           variant = "primary", // Default to primary variant
-                                           disabled,
-                                           size = "medium",
-                                           asChild = false, // Default asChild to false
-                                       }) => {
+    type = "button",
+    fullWidth,
+    children,
+    onClick,
+    variant = "primary", // Default to primary variant
+    disabled,
+    size = "medium",
+    asChild = false, // Default asChild to false
+}) => {
     const buttonClasses = clsx(
         styles.button,
         disabled && styles.disabled,
@@ -32,6 +32,7 @@ const Button: React.FC<ButtonProps> = ({
         variant === "danger" && styles.danger, // Apply danger variant styles
         variant === "outline" && styles.outline,
         variant === "link" && styles.link,
+        variant === "ghost" && styles.ghost,
         size === "small" && styles.small,
         size === "large" && styles.large,
     );

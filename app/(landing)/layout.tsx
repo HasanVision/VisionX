@@ -1,5 +1,6 @@
 
 
+import { Footer } from "./_components/footer/footer"
 import { Header } from "./_components/header/header"
 import styles from "./landing.module.css"
 
@@ -14,7 +15,7 @@ const LandingLayout = ({
             <main className={styles.LandingLayoutMain}>
                 {children}
             </main>
-            {/* Footer */}
+            <Footer />
         </div>
     )
 }

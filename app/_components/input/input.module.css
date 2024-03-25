@@ -1,16 +1,16 @@
 .InputStyle {
     display: flex;
-    height: 1.5rem;
+
     width: 100%;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    /* Added a solid border */
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary);
+
+    padding: 0.5rem 0.5rem;
+    font-size: 1rem;
+
+    /* transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; */
+    /* transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
+    transition-duration: 300ms;
 }
 
 .InputStyle:focus {

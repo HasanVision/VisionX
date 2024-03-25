@@ -1,14 +1,15 @@
 .button {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    border-radius: 7px;
+    border-radius: var(--border-radius);
     padding: 0.5rem;
     font-size: 1rem;
     font-weight: 400;
     border: none;
-
     cursor: pointer;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .button:disabled {
@@ -21,31 +22,45 @@
 }
 
 .button.primary {
-    background-color: rgb(51, 58, 115);
-    color: aliceblue;
+    background: linear-gradient(to left, var(--primary), var(--secondary));
+    color: var(--primary-foreground-rgb);
 
+}
+
+.button.primary:hover {
+    box-shadow: var(--hover-shadow);
 }
 
 .button.secondary {
-    background-color: rgb(56, 122, 223);
-    color: whitesmoke;
-
-}
-
-.button.danger {
-    background-color: #e70202;
-
-}
-
-
-
-.button.primary:hover {
-    background-color: #2563eb;
+    background-color: var(--secondary);
+    color: black;
 }
 
 .button.secondary:hover {
-    background-color: #93c5fd;
+    background: linear-gradient(to left, var(--primary), var(--secondary));
+    color: var(--text-color);
+    box-shadow: var(--hover-shadow);
 }
+
+
+.button.danger {
+    background-color: var(--destructive);
+
+}
+
+button.ghost {
+    background: none;
+}
+
+.button.ghost:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
 
 .button.danger:hover {
     background-color: #f87171;
@@ -54,7 +69,7 @@
 
 
 .button.outline {
-    background: #1af0c2;
+    background: var(--element-secondary-color);
     border: #2563eb;
     border-width: 10px;
 
@@ -66,7 +81,7 @@
 }
 
 .button.small {
-    /*padding: 0.25rem 0.5rem;*/
+
     font-size: 0.75rem;
 }
 
@@ -88,59 +103,3 @@
 .button.link:hover {
     text-decoration: underline;
 }
-
-
-
-
-/* 
-
-
-
-<!-- HTML !-->
-<button class="button-29" role="button">Button 29</button>
-
-
-.button-29 {
-  align-items: center;
-  appearance: none;
-  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
-  border: 0;
-  border-radius: 6px;
-  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: "JetBrains Mono",monospace;
-  height: 48px;
-  justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
-  position: relative;
-  text-align: left;
-  text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow,transform;
-  font-size: 18px;
-}
-
-.button-29:focus {
-  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-}
-
-.button-29:hover {
-  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-  transform: translateY(-2px);
-}
-
-.button-29:active {
-  box-shadow: #3c4fe0 0 3px 7px inset;
-  transform: translateY(2px);
-} */
