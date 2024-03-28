@@ -31,7 +31,7 @@ export const CardWrapper = ({
     return (
         <div className={styles.authCard}>
             <Card className={styles.CardWrapper}>
-                <CardHeader>
+                <CardHeader >
                     <Header label={headerLabel} />
                 </CardHeader>
 

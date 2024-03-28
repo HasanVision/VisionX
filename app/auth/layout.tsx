@@ -15,12 +15,6 @@ const AuthLayout = ({
                 {children}
             </main>
             <Footer />
-
-
-
-
-
-
         </div>
     )
 

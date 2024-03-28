@@ -20,7 +20,7 @@
     background-color: var(--primary-foreground-rgb);
     border-bottom: 1px var(--secondary);
     box-shadow: var(--box-shadow);
-    transition-duration: 300ms;
+    transition-duration: 500ms;
 }
 
 
