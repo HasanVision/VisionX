@@ -17,7 +17,7 @@ export const Header = ({
             <h1>
                 VisionX
             </h1>
-            <p>
+            <p >
                 {label}
             </p>
 

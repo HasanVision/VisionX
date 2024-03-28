@@ -1,4 +1,5 @@
 .button {
+
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +9,7 @@
     font-weight: 400;
     border: none;
     cursor: pointer;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
 
 }
 
@@ -22,24 +23,30 @@
 }
 
 .button.primary {
-    background: linear-gradient(to left, var(--primary), var(--secondary));
+
+
+    background: linear-gradient(to right, var(--primary), var(--secondary));
     color: var(--primary-foreground-rgb);
 
 }
 
 .button.primary:hover {
-    box-shadow: var(--hover-shadow);
+    /* box-shadow: var(--hover-shadow); */
+    box-shadow: var(--shadow);
+    transition-duration: .1s;
+    opacity: 1;
 }
 
 .button.secondary {
     background-color: var(--secondary);
-    color: black;
+    color: whitesmoke;
+
 }
 
 .button.secondary:hover {
-    background: linear-gradient(to left, var(--primary), var(--secondary));
-    color: var(--text-color);
-    box-shadow: var(--hover-shadow);
+    box-shadow: var(--shadow);
+    transition-duration: .1s;
+    opacity: 1;
 }
 
 
@@ -96,7 +103,8 @@ button.ghost {
     font-size: 0.8rem;
     font-weight: 400;
     padding-left: 0;
-    cursor: pointer;
+    /* cursor: pointer; */
+    color: var(--text-color);
 
 }
 

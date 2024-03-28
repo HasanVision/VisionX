@@ -1,16 +1,16 @@
 .InputStyle {
-    display: flex;
+    /* display: flex; */
 
     width: 100%;
     border-radius: var(--border-radius);
-    border: 1px solid var(--primary);
+
+    border: none;
 
     padding: 0.5rem 0.5rem;
     font-size: 1rem;
-
-    /* transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; */
-    /* transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
-    transition-duration: 300ms;
+    margin-top: 0.5rem;
+    color: var(--primary);
+    background: rgb(214, 214, 214);
 }
 
 .InputStyle:focus {

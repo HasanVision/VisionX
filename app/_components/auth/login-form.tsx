@@ -81,7 +81,7 @@ export const LoginForm = () => {
         // showSocial
         >
             <Form {...form} >
-                <form className={styles.Form}
+                <form className={styles.FormLabel}
                     onSubmit={form.handleSubmit(onSubmit)}
                 >
                     <div className={styles.formInput}>
